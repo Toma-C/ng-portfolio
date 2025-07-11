@@ -9,13 +9,13 @@ body{
 }
 @font-face {
   font-family: "Bebas Neue";
-  src: url("/assets/fonts/BebasNeue-Regular.ttf") format("truetype");
+  src: url("../assets/fonts/BebasNeue-Regular.ttf") format("truetype");
 }
 @font-face {
   font-family: "Data70";
-  src: url("/assets/fonts/Data70.ttf") format("truetype");
+  src: url("../assets/fonts/Data70.ttf") format("truetype");
 }
 @font-face {
   font-family: "Xolonium";
-  src: url("/assets/fonts/xolonium/Xolonium-Regular.ttf") format("truetype");
+  src: url("../assets/fonts/xolonium/Xolonium-Regular.ttf") format("truetype");
 }
