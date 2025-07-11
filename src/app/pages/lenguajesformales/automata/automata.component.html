@@ -1,0 +1,35 @@
+<div class="container">
+  <table>
+    <tr>
+      <td>ID: </td> <td> <input type="text" [(ngModel)]="inputId"/> </td>
+    </tr>
+    <tr>
+      <td>RELACIONES 0 </td> <td><input type="text" [(ngModel)]="inputRel0"/> </td>
+    </tr>
+    <tr>
+      <td>RELACIONES 1 </td> <td><input type="text" [(ngModel)]="inputRel1"/> </td>
+    </tr>
+    <tr>
+      <td> ES ACEPTACION </td> <td><input type="checkbox" [(ngModel)]="inputAccept"/> </td>
+    </tr>
+    <tr>
+  </table>
+  <button (click)="addNode(inputId,inputRel0,inputRel1,inputAccept)">Generar Nodo</button>
+  <table>
+    <th>Nodo </th>
+    <th>Relaciones 0</th>
+    <th>Relaciones 1</th>
+    <th>Aceptacion</th>
+    <tr *ngFor="let node of nodes" id="{{node.id}}">
+      <td>{{node.id}}</td>
+      <td>{{node.rel0}}</td>
+      <td>{{node.rel1}}</td>
+      <td>{{node.isAccept}}</td>
+      <button (click)=deleteNode(node.id)> delete node X </button>
+    </tr>
+  </table>
+  Palabra de prueba: <input type="text"  [(ngModel)]="word"/> <br/>
+
+  <button (click)="runAutomata()"> Correr Automata </button> <br/>
+  <p>{{this.isWordAccepted}}</p>
+</div>

@@ -1,0 +1,15 @@
+* {
+  font-family: "Xolonium";
+  align-items: center;
+  width: 100%;
+  text-justify: distribute;
+}
+.pagebody {
+  align-items: center;
+  width:100%;
+  display: flex;
+  text-justify: distribute;
+  justify-content: center;
+  flex-direction: column;
+  background: #110b0d;
+}

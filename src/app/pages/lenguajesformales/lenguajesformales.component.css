@@ -1,0 +1,26 @@
+
+.container{
+  margin: 0;
+  padding: 0;
+  background: #110b0d;
+  font-family: "Xolonium";
+  align-items: center;
+
+  width: 100vw;
+}
+.pagebody {
+  align-items: center;
+  display: flex;
+  text-justify: distribute;
+  justify-content: center;
+  flex-direction: column;
+  background: #110b0d;
+}
+input button{
+ width: 10%;
+}
+img{
+  opacity:70%;
+  width: 30%;
+  margin-bottom: 1%;
+}

@@ -1,0 +1,9 @@
+.accordion {
+  display: flex;
+  flex-direction: column;
+  padding: 0 20% 0 20%;
+}
+.button {
+  background-color: #110b0d;
+  color: grey;
+}

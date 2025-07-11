@@ -1,0 +1,1 @@
+{"ast":null,"code":"export class Node {\n  constructor(id, rel0, rel1, isAccept = false) {\n    this.id = id;\n    this.rel0 = rel0;\n    this.rel1 = rel1;\n    this.isAccept = isAccept;\n  }\n}","map":null,"metadata":{},"sourceType":"module","externalDependencies":[]}

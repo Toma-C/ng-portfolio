@@ -1,0 +1,11 @@
+<div class="my_container">
+  <div class="my_grid-table" #table>
+    <app-grid-row
+      *ngFor="let f of [].constructor(5); let r = index"
+      id="{{ r }}"
+      #row
+    >
+    </app-grid-row>
+  </div>
+  <span>Tomás Cravero</span>
+</div>

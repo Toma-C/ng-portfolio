@@ -1,0 +1,21 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  background: #110b0d;
+  font-family: "Xolonium";
+}
+body{
+  width: 100vw;
+}
+@font-face {
+  font-family: "Bebas Neue";
+  src: url("/assets/fonts/BebasNeue-Regular.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Data70";
+  src: url("/assets/fonts/Data70.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Xolonium";
+  src: url("/assets/fonts/xolonium/Xolonium-Regular.ttf") format("truetype");
+}

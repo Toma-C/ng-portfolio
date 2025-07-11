@@ -1,0 +1,10 @@
+.bio {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  text-justify: distribute;
+  flex-direction: column;
+  background: #110b0d;
+  color: grey;
+  padding: 1% 20% 1% 20%;
+}

@@ -1,0 +1,20 @@
+::ng-deep :root {
+  --color-active: red;
+  --color-inactive: #330000;
+  --dark-brown: #341a0d;
+  --orange: #c26e28;
+}
+* {
+  margin: 5%;
+  padding: 0px;
+  width: 90%;
+  height: 90%;
+}
+div {
+  border-radius: 10%;
+  box-shadow: 0px 0px 0px 100px var(--dark-brown) inset;
+}
+.active {
+  box-shadow: 0px 0px 0px 100px var(--orange) inset;
+  transition: box-shadow 0.4s ease-in;
+}
