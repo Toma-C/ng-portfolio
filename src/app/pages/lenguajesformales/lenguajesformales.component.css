@@ -15,6 +15,7 @@
   justify-content: center;
   flex-direction: column;
   background: #110b0d;
+  color:grey;
 }
 input button{
  width: 10%;

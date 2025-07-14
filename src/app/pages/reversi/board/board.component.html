@@ -1,0 +1,7 @@
+<div class="container">
+    <ng-container *ngFor="let row of reversiService.board.boardarray; let x = index" class="row">
+  <app-cell *ngFor="let cell of row; let y = index"
+      [cell]="cell"class="cell">
+  </app-cell>
+      </ng-container>
+</div>

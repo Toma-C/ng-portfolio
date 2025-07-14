@@ -1,0 +1,35 @@
+:host {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  height: 100dvh;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+.container{
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    aspect-ratio: 1 / 1;
+    max-width: 90vmin;
+    min-width: 300px;
+    width: 100%;
+    box-sizing: border-box;
+    overflow: hidden;
+    margin:0;
+    padding:0;
+    outline:4px solid #222;
+}
+  
+.cell{
+    aspect-ratio: 1 / 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: clamp(0.8rem, 2vw, 2rem);
+    user-select: none;
+    cursor: pointer;
+    border: 1px solid #222;
+    box-sizing: border-box;
+}
+

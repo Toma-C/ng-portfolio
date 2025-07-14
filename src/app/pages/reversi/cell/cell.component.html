@@ -1,0 +1,9 @@
+<div class="cell"
+     (click)="onClick()" 
+    [ngClass]="{
+    black: cell.state === 'black',
+    white: cell.state === 'white',
+    empty: cell.state === 'empty'
+    }">
+
+</div>

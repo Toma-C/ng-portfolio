@@ -1,25 +1,24 @@
 <div ngbAccordion [closeOthers]="true">
   <div ngbAccordionItem [collapsed]="false">
     <h2 ngbAccordionHeader>
-      <button ngbAccordionButton>First</button>
+      <button ngbAccordionButton>Lenguajes Formales y Computabilidad</button>
     </h2>
     <div ngbAccordionCollapse>
       <div ngbAccordionBody>
-        <ng-template>
         <nav>
-          <a routerLink="/lenguajesformales">Automatas de estado finito</a>
+            <ul><a routerLink="/lenguajesformales">Automatas de estado finito</a></ul>
+            <ul><a routerLink="/lista"> Funciones de lista </a></ul>
         </nav>
-        </ng-template>
       </div>
     </div>
   </div>
   <div ngbAccordionItem>
     <h2 ngbAccordionHeader>
-      <button ngbAccordionButton>Second</button>
+      <button ngbAccordionButton>Otros</button>
     </h2>
     <div ngbAccordionCollapse>
       <div ngbAccordionBody>
-        <ng-template>Content for the first item</ng-template>
+            <ul><a routerLink="/reversi"> reversi </a></ul>
       </div>
     </div>
   </div>

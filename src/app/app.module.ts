@@ -12,6 +12,10 @@ import { BioComponent } from './bio/bio.component';
 import { AccordionComponent } from './accordion/accordion.component';
 import { LenguajesformalesComponent } from './pages/lenguajesformales/lenguajesformales.component';
 import { AutomataComponent } from './pages/lenguajesformales/automata/automata.component';
+import { ListaComponent } from './pages/lista/lista.component';
+import { ReversiComponent } from './pages/reversi/reversi.component';
+import { BoardComponent } from './pages/reversi/board/board.component';
+import { CellComponent } from './pages/reversi/cell/cell.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +27,10 @@ import { AutomataComponent } from './pages/lenguajesformales/automata/automata.c
     AccordionComponent,
     LenguajesformalesComponent,
     AutomataComponent,
+    ListaComponent,
+    ReversiComponent,
+    BoardComponent,
+    CellComponent,
   ],
   imports: [
     BrowserModule,

@@ -3,7 +3,18 @@
   flex-direction: column;
   padding: 0 20% 0 20%;
 }
-.button {
+button {
   background-color: #110b0d;
   color: grey;
+}
+.accordion-button{
+  background-color: #110b0d;
+  color: grey;
+}
+.collapsed{
+  background-color: #110b0d;
+  color: grey;
+}
+.open{
+    color:red;
 }

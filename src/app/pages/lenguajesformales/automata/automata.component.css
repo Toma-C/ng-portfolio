@@ -17,3 +17,10 @@ input{
 th, td{
   padding:0 10px 0 0;
 }
+
+.ACCEPT{
+    color:green;
+}
+.REJECT{
+    color:red;
+}

@@ -1,0 +1,14 @@
+.black{
+    background-color: black;
+}
+
+.white{
+    background-color: white;
+}
+.empty{
+    background: grey;
+}
+*{
+    width:100%;
+    height:100%;
+}
