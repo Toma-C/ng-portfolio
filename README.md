@@ -1,7 +1,9 @@
 ng build -c production --base-href ./
 npx angular-cli-ghpages --dir=dist/background-test
 
-
+13/6
+NUKEADO
+aprendimos algo de git(?)
 
 8/5
 modelo "terminado"
