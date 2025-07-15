@@ -1,7 +1,13 @@
 <div class="container">
-    <ng-container *ngFor="let row of reversiService.board.boardarray; let x = index" class="row">
-  <app-cell *ngFor="let cell of row; let y = index"
-      [cell]="cell"class="cell">
+  <ng-container *ngFor="let row of this.board; let iy = index" class="row">
+  <app-cell 
+    *ngFor="let cell of row; let ix = index"
+    [cell]="cell"class="cell"
+    [x]="ix"
+    [y]="iy"
+    [highlight]="highlightmap[iy][ix]"
+    [highlightcolor]="turn"
+    (cellClick)="onCellClicked({x:ix,y:iy})">
   </app-cell>
-      </ng-container>
+  </ng-container>
 </div>

@@ -3,7 +3,18 @@
     [ngClass]="{
     black: cell.state === 'black',
     white: cell.state === 'white',
-    empty: cell.state === 'empty'
+    empty: cell.state === 'empty',
+    hlblack: highlightcolor === 'black',
+    hlwhite: highlightcolor === 'white',
+    highlight: highlight
     }">
-
+    <div
+    *ngIf="cell.state !== 'empty'"
+    class="disc"
+    [ngClass]="{
+      black: cell.state === 'black',
+      white: cell.state === 'white',
+      flipping: flipAnimation
+    }"
+  ></div>
 </div>

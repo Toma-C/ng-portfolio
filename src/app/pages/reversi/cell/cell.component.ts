@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input , Output, EventEmitter, SimpleChanges} from '@angular/core';
 import {Cell} from "src/app/shared/models/cell";
 
 @Component({
@@ -8,14 +8,36 @@ import {Cell} from "src/app/shared/models/cell";
 })
 export class CellComponent {
     @Input() cell!:Cell;
+    @Input() x!:number;
+    @Input() y!:number;
+    @Input() highlight:boolean = false;
+    @Input() highlightcolor:'black'|'white' = 'black';
+    @Output() cellClick = new EventEmitter<{x:number; y:number}>();
     onClick(){
-        if(this.cell.state == 'empty'){
-        this.cell.state='black';
-        }else if(this.cell.state == 'black'){
-        this.cell.state='white';
-        }else if(this.cell.state == 'white'){
-            this.cell.state='black';
-        }
+        this.cellClick.emit({x:this.x, y:this.y})
+    }
+
+    flipAnimation = false;
+    private previousState: 'black' | 'white' | 'empty' = 'empty';
+
+    ngOnChanges(changes: SimpleChanges): void {
+        if(!('highlight' in changes) && ! ('highlightcolor' in changes)) return;
+        if(this.previousState != this.cell.state ) {
+          this.triggerFlip();
+          this.previousState = this.cell.state;
+       }
+    }
+    triggerFlip() {
+        this.flipAnimation = false;
+
+  // Force reflow before applying the class
+  requestAnimationFrame(() => {
+    this.flipAnimation = true;
+
+    setTimeout(() => {
+      this.flipAnimation = false;
+    }, 400); // match your CSS duration
+  });
     }
 
 }
