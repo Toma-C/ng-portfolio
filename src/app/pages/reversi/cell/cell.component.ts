@@ -21,8 +21,9 @@ export class CellComponent {
     private previousState: 'black' | 'white' | 'empty' = 'empty';
 
     ngOnChanges(changes: SimpleChanges): void {
-        if(!('highlight' in changes) && ! ('highlightcolor' in changes)) return;
-        if(this.previousState != this.cell.state ) {
+        if(!('highlight' in changes) && ! ('highlightcolor' in changes)){
+            return;
+        }else if(this.previousState !== this.cell.state  ) {
           this.triggerFlip();
           this.previousState = this.cell.state;
        }
