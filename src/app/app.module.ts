@@ -16,6 +16,7 @@ import { ListaComponent } from './pages/lista/lista.component';
 import { ReversiComponent } from './pages/reversi/reversi.component';
 import { BoardComponent } from './pages/reversi/board/board.component';
 import { CellComponent } from './pages/reversi/cell/cell.component';
+import { P5TestComponent } from './pages/p5-test/p5-test.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { CellComponent } from './pages/reversi/cell/cell.component';
     ReversiComponent,
     BoardComponent,
     CellComponent,
+    P5TestComponent,
   ],
   imports: [
     BrowserModule,
