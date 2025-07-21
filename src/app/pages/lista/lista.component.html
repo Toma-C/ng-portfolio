@@ -1,3 +1,56 @@
 <div class="pagebody">
-    WIP
+    <p>Las Funciones de listas son un modelo presentado por el lógico Giuseppe Jacopinen en los años 70</p>
+    <p>Definimos lista como una secuencia ordenada y finita de 0 o más elementos de los Naturales</p>
+    <ul>
+        <li>[x1, x2, x3, ... , xk] es una lista de longitud k</li>
+        <li>[] es una lista vacía</li>
+        <li>L es el conjunto de todas las listas</li>
+    </ul>
+    <p>Llamamos función de lista a aquellas funciones que van de L en L y notamos la aplicación de la función F en la lista X, que tiene como resultado la lista Y como F(X) = Y Y o bien FX = Y</p>
+    <p>Para evitar el uso de subindices, que pueden renderizarce erroneamente, usamos un único caracter para llamar a cada función. Llamaremos como regla general con minúsculas a las funciones que afectan a la izquierda, y con mayúsculas a aquellas que afecten a la derecha.</p>
+    <p> Definimos nuestras funciones base </p>
+    <ul>
+        <li> Cero a la izquierda c: c[x1, x2, ... , xk] = [0, x1, x2, ... , xk]</li>
+        <li> Cero a la Derecha C: C[x1, x2, ... , xk] = [x1, x2, ... , xk, 0]</li>
+        <li> Borrar a la izquierda b: b[x1, x2, ... , xk] = [x2, ... , xk]</li>
+        <li> Borrar a la derecha B: B[x1, x2, ... , x(k -1), xk] = [x1, x2, ... , xi(k -1)]</li>
+        <li> Sucesor a la izquierda s: s[x1, x2, ... , xk] = [x1 + 1, x2, ... , xk]</li>
+        <li> Sucesor a la derecha S: S[x1, x2, ... , xk] = [x1 + 1, x2, ... , xk + 1]</li>
+    </ul>
+    <p>Definimos además 2 operadores para completar este modelo: </p>
+    <ul>
+        <li>Operador composición: H = FG def. como HX = G(F(X)). Notese que se aplican en orden inverso</li>
+        <li>Operador de repetición: {{'{'}} F{{'}'}} [x,Y,z] = [x,Y,z] si x = Z o F {{'{'}} F{{'}'}} [x,Y,z] si x!=z</li>
+
+    </ul>
+    <p>Por ahora solo se pueden usar funciones basicas, lo que puede resultar molesto. Tener paciencia, a futuro se agregaran funciones definidas por el usuario</p>
+    <p>Algunos ejemplos de funciones:</p>
+    <div class="buttonbar">
+        <button *ngFor="let example of examples" (click)="loadCustFunc(example.func)"> {{example.name}}</button> 
+    </div>
+    <br/>
+    Introducir lista ( de nros naturales, separados por ,) 
+    <br/>
+    <input type="text" [(ngModel)]="listinput">  <button (click)="loadList()">Cargar</button>
+    <br/>
+    Introducir funcion (sin espacios ni comas)
+    <br/>
+    <input type="text" [(ngModel)]="funcinput"><button (click)="loadFunc()">Cargar</button>
+    <div>Delay? <input type="checkbox" checked [(ngModel)]="delayinput"></div>
+
+    <div class="functioncontainer">
+        <p>
+        Función:
+        </p>
+        <div class="cell" *ngFor="let element of listfunc"> {{element}}</div>
+    </div>
+    <br/>
+    <div class="listcontainer">
+        <p>
+        Lista:
+        </p>
+        <div class="cell" *ngFor="let element of list"> {{element}}</div>
+    </div>
+    <button (click)="applyFunc(listfunc)"> Correr </button>
+
 </div>

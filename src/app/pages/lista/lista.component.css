@@ -1,0 +1,18 @@
+.pagebody{
+    color: grey;
+}
+input, button{
+    background-color: grey;
+    color: black;
+}
+.listcontainer, .functioncontainer{
+    width:100%;
+    display: flex;
+}
+.cell{
+    width: 2em;
+    height: 2em;
+    outline: 1px solid darkgrey;
+    text-align: center;
+    vertical-align: center;
+}

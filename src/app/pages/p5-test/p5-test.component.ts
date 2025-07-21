@@ -30,11 +30,12 @@ export class P5TestComponent {
       };
     };
 
-    this.p5Instance = new p5(sketch, this.container.nativeElement);
+    this.p5Instance = new p5(sketch, this.container.nativeElement)
   }
 
   ngOnDestroy(): void {
     this.p5Instance?.remove();
   }
+
 }
 
