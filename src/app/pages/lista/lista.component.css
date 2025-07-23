@@ -35,12 +35,7 @@ input, button{
     width: 50%;
     height: 100%;
     overflow: hidden;
-}
-.right{
-    padding-left: 5%;
-}
-.left{
-    padding-right: 5%;
+    padding: 1%;
 }
 .container{
     width: 100%;
