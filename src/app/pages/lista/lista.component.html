@@ -1,4 +1,5 @@
 <div class="pagebody">
+    <div class="container">
     <p>Las Funciones de listas son un modelo presentado por el lógico Giuseppe Jacopinen en los años 70</p>
     <p>Definimos lista como una secuencia ordenada y finita de 0 o más elementos de los Naturales</p>
     <ul>
@@ -21,36 +22,66 @@
     <ul>
         <li>Operador composición: H = FG def. como HX = G(F(X)). Notese que se aplican en orden inverso</li>
         <li>Operador de repetición: {{'{'}} F{{'}'}} [x,Y,z] = [x,Y,z] si x = Z o F {{'{'}} F{{'}'}} [x,Y,z] si x!=z</li>
-
     </ul>
-    <p>Por ahora solo se pueden usar funciones basicas, lo que puede resultar molesto. Tener paciencia, a futuro se agregaran funciones definidas por el usuario</p>
     <p>Algunos ejemplos de funciones:</p>
     <div class="buttonbar">
         <button *ngFor="let example of examples" (click)="loadCustFunc(example.func)"> {{example.name}}</button> 
     </div>
     <br/>
-    Introducir lista ( de nros naturales, separados por ,) 
-    <br/>
-    <input type="text" [(ngModel)]="listinput">  <button (click)="loadList()">Cargar</button>
-    <br/>
-    Introducir funcion (sin espacios ni comas)
-    <br/>
-    <input type="text" [(ngModel)]="funcinput"><button (click)="loadFunc()">Cargar</button>
-    <div>Delay? <input type="checkbox" checked [(ngModel)]="delayinput"></div>
-
+    <div class="container">
+    <div class="container-box left">
+        <div>
+            <div>
+            Introducir lista ( de nros naturales, separados por ,) 
+            <input type="text" [(ngModel)]="listinput">  <button (click)="loadList()">Cargar</button>
+            </div>
+            <div>
+            Introducir funcion (sin espacios ni comas)
+            <input type="text" [(ngModel)]="funcinput"><button (click)="loadFunc()">Cargar</button>
+            </div>
+            </div>
+    </div>
+    <div class="container-box right">
+        <div>
+            <div>
+                <div>
+                    Definir Funciones:
+                </div>
+                <div>
+                    Caracter de la función (1 caracter) <br/>
+                    <input type="text" [(ngModel)]="userfuncnameinput">
+                </div>
+            </div>
+        <div>
+            <div>
+            Cuerpo de la función <br/>
+            <input type="text" [(ngModel)]="userfuncinput">
+            <button (click)="loadUserFunc()"> Cargar </button>
+            </div>
+        </div>
+        </div>
+    </div>
+    </div>
+    <div class="container">
+    <p>
+    Función:
+    </p>
     <div class="functioncontainer">
-        <p>
-        Función:
-        </p>
         <div class="cell" *ngFor="let element of listfunc"> {{element}}</div>
     </div>
+    <div>
+        Funciones Auxiliares:
+        <div *ngFor="let entry of userfunctionsEntries"> {{entry[0]}}: {{entry[1]}}"</div>
+    </div>
     <br/>
+    <p>
+    Lista:
+    </p>
     <div class="listcontainer">
-        <p>
-        Lista:
-        </p>
         <div class="cell" *ngFor="let element of list"> {{element}}</div>
     </div>
-    <button (click)="applyFunc(listfunc)"> Correr </button>
+    <button (click)="applyFunc(expandFunc(listfunc))"> Correr </button>
+    </div>
 
+    </div>
 </div>

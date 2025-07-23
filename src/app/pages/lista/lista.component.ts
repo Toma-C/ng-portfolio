@@ -12,34 +12,82 @@ export class ListaComponent {
     listinput: string = "";
     funcinput: string = "";
     delayinput :boolean = true;
-    userfunctions = [ "<",">","d","D","x"];
+
+    userfuncnameinput: string = "";
+    userfuncinput: string = "";
+    userfunctions: { [key: string]: string } = {
+      "<": "c{s}B",
+      ">": "C{S}b",
+      "d": "C{S}c{s}B",
+      "D": "c{s}C{S}b",
+      "x": "C{S}bcc{s}Bc{sC{S}bC{S}bsc{s}Bc{s}B}BbC{S}b",
+      "m": ">C{S<S>}bB<"
+    };
+
+
+
     examples = [ 
         {
-        name: "Pasar a la izquierda <",
+        name: "Pasar a la izquierda (<)",
         id: "<",
         func: "c{s}B"
         },
         {
-        name: "Pasar a la derecha >",
+        name: "Pasar a la derecha (>)",
         id: ">",
         func: "C{S}b"
         },
         {
-        name: "Duplicar a la izquierda",
+        name: "Duplicar a la izquierda (d)",
         id: "d",
         func: "C{S}c{s}B"
         },
         {
-        name: "Duplicar a la derecha",
+        name: "Duplicar a la derecha (D)",
         id: "D",
         func: "c{s}C{S}b"
         },
         {
-        name: "Intercambiar extremos",
+        name: "Intercambiar extremos (x)",
         id: "x",
-        func: "C{S}bcc{s}Bc{sC{S}bC{S}bsc{s}Bc{s}B}BbC{S}b" 
+        func: ">c<c{s>>s<<}bB>" 
         },
+        {
+        name:"Suma a la izquierda (m)",
+        id: "m",
+        func: ">C{S<S>}bB<"
+        },
+        {
+        name:"Suma a la derecha (M)",
+        id: "M",
+        func: "<c{s>s<}bB>"
+        },
+        {
+        name:"Suma persistente a la izquierda",
+        id: "M",
+        func: "d>>dxmx<x<"
+        }
+
     ]
+
+    get userfunctionsEntries() {
+        return Object.entries(this.userfunctions);
+    }
+    expandFunc(lfunc: string[]){
+        const result = [...lfunc];
+        let i = 0;
+
+        while (i < result.length) {
+            const char = result[i];
+            if (this.userfunctions[char]) {
+                result.splice(i, 1, ...this.userfunctions[char]);
+            } else {
+                i++;
+            }
+        }
+
+        return result;
+    }
 
 
     loadCustFunc(func : string){
@@ -52,6 +100,10 @@ export class ListaComponent {
 
     loadList(){
         this.list = this.listinput.split(',').map( (x) => Number(x) );
+    }
+
+    loadUserFunc(){
+        this.userfunctions[this.userfuncnameinput] = this.userfuncinput;
     }
 
     //aplica funciones simples, sin uso del operador {};

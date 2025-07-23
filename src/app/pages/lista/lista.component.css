@@ -16,3 +16,21 @@ input, button{
     text-align: center;
     vertical-align: center;
 }
+.container-box{
+    outline: 1px solid grey;
+    display: table-cell;
+    vertical-align: top;
+    width: 50%;
+    height: 100%;
+    overflow: hidden;
+}
+.right{
+    padding-left: 5%;
+}
+.left{
+    padding-right: 5%;
+}
+.container{
+    width: 100%;
+    justify-content: center;
+}
