@@ -8,10 +8,13 @@ import { Component } from '@angular/core';
 export class ListaComponent {
     list: number[] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
     listfunc: string[] = [];
+    isRenderingList: boolean = true;
+
+    trackValueChange = (index: number, value: number) => `${index}-${value}`;
 
     listinput: string = "";
     funcinput: string = "";
-    delayinput :boolean = true;
+    delayinput :boolean = false;
 
     userfuncnameinput: string = "";
     userfuncinput: string = "";
@@ -73,6 +76,8 @@ export class ListaComponent {
     get userfunctionsEntries() {
         return Object.entries(this.userfunctions);
     }
+
+
     expandFunc(lfunc: string[]){
         const result = [...lfunc];
         let i = 0;
@@ -106,8 +111,93 @@ export class ListaComponent {
         this.userfunctions[this.userfuncnameinput] = this.userfuncinput;
     }
 
+    delay(ms: number): Promise<void> {
+      if (ms <= 0) {
+        return new Promise(resolve =>requestAnimationFrame( ()=> resolve() ));
+      }
+
+      return new Promise(resolve => setTimeout(resolve, ms));
+    }
+
     //aplica funciones simples, sin uso del operador {};
-    applyBasicFunc(lfunc: string[]){
+    async applyBasicFunc(lfunc: string[]): Promise<void>{
+        for(const f of lfunc){
+            await this.delay(this.delayinput ? 400 : 0);
+            switch(f){
+                case 'c': 
+                    //console.log('apply c')
+                    this.list.unshift(0);
+                    break;
+                case 'C': 
+                    //console.log('apply C')
+                    this.list.push(0);
+                    break;
+                case 'b':
+                    //console.log('apply b')
+                    this.list.shift();
+                    break;
+                case 'B':
+                    //console.log('apply B')
+                    this.list.pop();
+                    break;
+                case 's':
+                    //console.log('apply s')
+                    this.list[0] += 1;
+                    break;
+                case 'S':
+                    //console.log('apply S')
+                    this.list[this.list.length -1 ] += 1;
+                    break;
+                default:
+                    break
+            } 
+        }
+    }
+
+    async applyFunc(lfunc: string[]): Promise<void>{
+        if(lfunc.includes('{')){
+            let bracecounter = 0;
+            const innerfunc: string[] = []
+            let i = 0;
+            while(lfunc[i]!= '{'){
+                i++;
+            }
+            await this.applyFunc(lfunc.slice(0,i));
+            if(lfunc[i] === '{'){
+                bracecounter = 1;
+                while(bracecounter > 0){
+                    i++;
+                    if(lfunc[i] === '{'){
+                        bracecounter++;
+                    }else if (lfunc[i] === '}'){
+                        bracecounter--;
+                    }
+                    if(bracecounter!= 0){
+                        innerfunc.push(lfunc[i]);
+                    }
+                    
+                }
+                while( this.list[0] !== this.list[this.list.length -1] ){
+                    //console.log("applying innerfunc", innerfunc);
+                    await this.applyFunc(innerfunc);
+                }
+                await this.applyFunc(lfunc.slice(i));
+            }
+
+        }else{
+            await this.applyBasicFunc(lfunc);
+        
+        }
+    }
+    async runProgram(lfunc: string[]) {
+        if(this.delayinput){
+        await this.applyFunc(this.expandFunc(lfunc));
+        }else{
+            this.applyFuncI(this.expandFunc(lfunc));
+        }
+    }
+
+    applyBasicFuncI(lfunc: string[]){
         for(const f of lfunc){
             switch(f){
                 case 'c': 
@@ -140,7 +230,7 @@ export class ListaComponent {
         }
     }
 
-    applyFunc(lfunc: string[]){
+    applyFuncI(lfunc: string[]){
         if(lfunc.includes('{')){
             let bracecounter = 0;
             const innerfunc: string[] = []
@@ -148,7 +238,7 @@ export class ListaComponent {
             while(lfunc[i]!= '{'){
                 i++;
             }
-            this.applyFunc(lfunc.slice(0,i));
+            this.applyFuncI(lfunc.slice(0,i));
             if(lfunc[i] === '{'){
                 bracecounter = 1;
                 while(bracecounter > 0){
@@ -165,13 +255,13 @@ export class ListaComponent {
                 }
                 while( this.list[0] !== this.list[this.list.length -1] ){
                     console.log("applying innerfunc", innerfunc);
-                    this.applyFunc(innerfunc);
+                    this.applyFuncI(innerfunc);
                 }
-                this.applyFunc(lfunc.slice(i));
+                this.applyFuncI(lfunc.slice(i));
             }
 
         }else{
-            this.applyBasicFunc(lfunc);
+            this.applyBasicFuncI(lfunc);
         
         }
     }

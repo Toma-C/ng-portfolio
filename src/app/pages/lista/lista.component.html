@@ -62,6 +62,7 @@
         </div>
     </div>
     </div>
+
     <div class="container">
     <p>
     Función:
@@ -77,11 +78,14 @@
     <p>
     Lista:
     </p>
-    <div class="listcontainer">
-        <div class="cell" *ngFor="let element of list"> {{element}}</div>
+    <div class="listcontainer" [style.visibility]="isRenderingList ? 'visible' : 'hidden'">
+        <div class="cell" *ngFor="let element of list;trackBy: trackValueChange"> {{element}}</div>
     </div>
-    <button (click)="applyFunc(expandFunc(listfunc))"> Correr </button>
+    <br/>
+    <button (click)="runProgram(listfunc)"> Correr </button>
+    Delay? <input type="checkbox" [(ngModel)]="delayinput">
     </div>
 
     </div>
 </div>
+<footer></footer>
