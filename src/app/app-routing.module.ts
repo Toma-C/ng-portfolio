@@ -4,6 +4,7 @@ import {LenguajesformalesComponent} from './pages/lenguajesformales/lenguajesfor
 import {ListaComponent} from './pages/lista/lista.component';
 import {ReversiComponent} from './pages/reversi/reversi.component';
 import {P5TestComponent} from './pages/p5-test/p5-test.component';
+import {ApiExampleComponent} from './pages/api-example/api-example.component';
 
 const routes: Routes = [
   {
@@ -21,6 +22,10 @@ const routes: Routes = [
   {
     path: 'p5-test' ,
     component: P5TestComponent
+  },
+  {
+    path: 'api-example' ,
+    component: ApiExampleComponent
   }
 
 ];

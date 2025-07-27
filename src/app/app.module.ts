@@ -17,6 +17,7 @@ import { ReversiComponent } from './pages/reversi/reversi.component';
 import { BoardComponent } from './pages/reversi/board/board.component';
 import { CellComponent } from './pages/reversi/cell/cell.component';
 import { P5TestComponent } from './pages/p5-test/p5-test.component';
+import { ApiExampleComponent } from './pages/api-example/api-example.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { P5TestComponent } from './pages/p5-test/p5-test.component';
     BoardComponent,
     CellComponent,
     P5TestComponent,
+    ApiExampleComponent,
   ],
   imports: [
     BrowserModule,

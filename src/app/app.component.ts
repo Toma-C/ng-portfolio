@@ -14,7 +14,7 @@ export class AppComponent {
     this.router.events
     .pipe(filter((event: Event): event is NavigationEnd => event instanceof NavigationEnd))
       .subscribe((event: NavigationEnd) => {
-      const standaloneRoutes = ['/lenguajesformales','/lista','/reversi', '/p5-test']; // add more if needed
+      const standaloneRoutes = ['/lenguajesformales','/lista','/reversi', '/p5-test', '/api-example']; // add more if needed
       this.isStandalonePage = standaloneRoutes.includes(event.urlAfterRedirects);
     });
     }
