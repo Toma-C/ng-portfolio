@@ -1,14 +1,36 @@
 <div ngbAccordion [closeOthers]="true">
   <div ngbAccordionItem [collapsed]="false">
     <h2 ngbAccordionHeader>
+      <button ngbAccordionButton>Ejemplos API</button>
+    </h2>
+    <div ngbAccordionCollapse>
+      <div ngbAccordionBody>
+        <nav>
+            <ul>
+            <li><a routerLink="/api-example"> Clima con API </a>
+                <p>
+                Una página como ejemlpo para ver el clima utilizando una API
+                </p>
+            </li>
+            </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+  <div ngbAccordionItem >
+    <h2 ngbAccordionHeader>
       <button ngbAccordionButton>Lenguajes Formales y Computabilidad</button>
     </h2>
     <div ngbAccordionCollapse>
       <div ngbAccordionBody>
         <nav>
             <ul>
-            <li><a routerLink="/lenguajesformales">Automatas de estado finito</a></li>
-            <li><a routerLink="/lista"> Funciones de lista </a></li>
+            <li><a routerLink="/lenguajesformales">Automatas de estado finito</a>
+                <p>Simulador interactivo de Automatas, permite crear, modificar,
+                   y correr maquinas de estado.</p></li>
+            <li><a routerLink="/lista"> Funciones de lista </a>
+                <p>Simulador interactivo de Funciones de lista, un modelo
+                   computacional muy interesante y simple de entender.</p></li>
 
             </ul>
         </nav>
@@ -22,8 +44,16 @@
     <div ngbAccordionCollapse>
       <div ngbAccordionBody>
           <ul>
-            <li><a routerLink="/reversi"> Reversi </a></li>
-            <li><a routerLink="/p5-test"> Doom screen melt </a></li>
+            <li><a routerLink="/reversi"> Reversi </a>
+                <p>Un juego de estrategia abstracto de 2 jugadores.
+                   Captura las piezas del enemigo y domina mas territorio.
+                </p>
+            </li>
+            <li><a routerLink="/p5-test"> Doom screen melt </a> 
+                <p>Un ejemplo del efecto visual de cambio de nivel en el clásico 
+                   juego DOOM, recreado usando p5.js
+                </p>
+            </li>
           </ul>
       </div>
     </div>
