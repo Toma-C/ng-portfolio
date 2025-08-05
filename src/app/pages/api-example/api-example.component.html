@@ -1,4 +1,20 @@
 <div calss="pagebody">
-    <p>api test works</p>
-
+    <div class="container">
+        <h2> Vea el clima en su ciudad</h2>
+        <input type="text" [(ngModel)]="cityInput" placeholder="Ingrese su ciudad">
+        <button (click)="search()">Search</button>
+        <br/>
+        <div *ngIf="weatherFetched">
+              <h2>{{ weatherData.city }}, {{ weatherData.country }}</h2>
+              <p>Temperature: {{ weatherData.temperature }}°C</p>
+              <p>Wind Speed: {{ weatherData.windspeed }} km/h</p>
+              <p>Time: {{ weatherData.time }}</p>
+        <ng-container *ngIf="weatherData.weathercode !== undefined">
+            <p>
+              Condition: {{ getWeatherDescription(weatherData.weathercode).label }}
+              {{ getWeatherDescription(weatherData.weathercode).emoji }}
+            </p>
+        </ng-container>
+        </div>
+    </div>
 </div>

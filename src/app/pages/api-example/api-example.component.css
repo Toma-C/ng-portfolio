@@ -1,0 +1,19 @@
+input, button{
+    background: white;
+}
+
+.container{
+    width: 100%;
+    align-items: center;
+    text-align: center;
+}
+
+.pagebody {
+  align-items: center;
+  width:100%;
+  display: flex;
+  text-justify: distribute;
+  justify-content: center;
+  flex-direction: column;
+  background: #110b0d;
+}
